@@ -44,10 +44,11 @@ h1 {
   width: 75%;
 }
 .sunny-icon {
-  width: 100px;
+  width: 80px;
   position: relative;
   left: 0;
 }
+
 .highest {
   font-weight: 700;
 }
