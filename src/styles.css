@@ -73,7 +73,7 @@ button {
   transition: all 200ms ease-in-out;
 }
 button:hover {
-  background: white;
+  background: #eeeeee;
   color: blueviolet;
   cursor: pointer;
 }
