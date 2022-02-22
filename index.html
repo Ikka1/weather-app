@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>WeatherApp</title>
+  </head>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="src/styles.css" />
+
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form id="upper-level">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-5">
+                <h1 class="current-weather">
+                  CURRENT WEATHER <br /><span id="city"></span> <br />
+                  <span id="date"></span> <br />
+                  <span id="description"></span>
+                </h1>
+              </div>
+
+              <div class="col-3">
+                <input
+                  class="searchbar"
+                  id="search-city"
+                  type="text"
+                  placeholder="Enter your city"
+                  size="15"
+                  autofocus
+                />
+              </div>
+              <div class="col-4">
+                <button type="submit">🔍</button>
+                <button id="current-location-button">📍</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+          <div class="col-6">
+            <img class="sunny-icon" src="images/sunny.png" alt="sunny" />
+
+            <p1
+              >Temperature: <strong><span id="temp"></span></strong>
+              <a id="celsius-high-link">℃</a>
+              / <span id="lowest-temp"></span>℃
+            </p1>
+          </div>
+
+          <div class="col-6">
+            <p2>
+              Humidity: <span id="humidity"> </span>% <br />Wind:
+              <span id="wind"></span>km/hr
+            </p2>
+          </div>
+        </div>
+
+        <br />
+
+        <form>
+          <div class="form-group">
+            <div class="row align-items-start">
+              <div class="col">
+                <span><label class="weekday1">weekday1</label></span>
+                <br />
+                <span><img src="images/sunny.png" alt="sunny" /></span>
+                <br />
+                <span
+                  ><label class="temperature1">
+                    <span class="highest">39℃</span>/
+                    <span class="lowest">22℃</span></label
+                  ></span
+                >
+              </div>
+              <div class="col">
+                <span><label class="weekday2">weekday2</label></span>
+                <br />
+                <span><img src="images/sunny.png" alt="sunny" /></span>
+                <br />
+                <span
+                  ><label class="temperature2">
+                    <span class="highest">39℃</span>/
+                    <span class="lowest">22℃</span></label
+                  ></span
+                >
+              </div>
+              <div class="col">
+                <span><label class="weekday3">weekday3</label></span>
+                <br />
+                <span><img src="images/sunny.png" alt="sunny" /></span>
+                <br />
+                <span
+                  ><label class="temperature3">
+                    <span class="highest">39℃</span>/
+                    <span class="lowest">22℃</span></label
+                  ></span
+                >
+              </div>
+              <div class="col">
+                <span><label class="weekday4">weekday4</label></span>
+                <br />
+                <span><img src="images/sunny.png" alt="sunny" /></span>
+                <br />
+                <span
+                  ><label class="temperature4">
+                    <span class="highest">39℃</span>/
+                    <span class="lowest">22℃</span></label
+                  ></span
+                >
+              </div>
+              <div class="col">
+                <span><label class="weekday5">weekday5</label></span>
+                <br />
+                <span class="border border-3">weekday5icon</span>
+                <br />
+                <span><label class="temperature5">T5</label></span>
+              </div>
+            </div>
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+    <p class="note"">Open-source code, by Winda Lee from SheCodes</p>
+    <script src="src/index.js"></script>
+  </body>
+</html>
