@@ -1,44 +1,29 @@
 //the dates in () is a parameter
-function formatDate(dates) {
-  let date = dates.getDate();
-  let hours = dates.getHours();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = dates.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let year = dates.getFullYear();
-
-  let dayIndex = dates.getDay();
   let days = [
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
-    "Thursday",
+    "Thrusday",
     "Friday",
     "Saturday",
   ];
-  //We can put a: let day=days[dayIndex]; here so the below return can use ${day} only
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let month = months[dates.getMonth()];
-  return `${days[dayIndex]},  ${date} ${month}, ${year}, ${hours}:${minutes} `;
+  let day = days[date.getDay()];
+
+  return `${day}, ${hours}:${minutes} `;
 }
+
+//${days[dayIndex]}, ${date} ${month}, ${year},
 
 //export data from API
 function displayWeatherCondition(response) {
@@ -58,6 +43,8 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 //below: go to look the city and give API data.
@@ -96,11 +83,11 @@ function getCurrentLocation(event) {
 }
 
 //select the id=date line to replace.
-let dateElement = document.querySelector("#date");
+//let dateElement = document.querySelector("#date");
 //set up to call current time
-let currentTime = new Date();
+//let currentTime = new Date();
 //it will replace by formatDate function above and call this current time.
-dateElement.innerHTML = formatDate(currentTime);
+//dateElement.innerHTML = formatDate(currentTime);
 
 //Serach bar to show the city
 let searchForm = document.querySelector("#upper-level");
