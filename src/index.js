@@ -1,4 +1,3 @@
-//the dates in () is a parameter
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -22,10 +21,8 @@ function formatDate(timestamp) {
 
   return `${day}, ${hours}:${minutes} `;
 }
+//the time is wrong if search other city.
 
-//${days[dayIndex]}, ${date} ${month}, ${year},
-
-//export data from API
 function displayWeatherCondition(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
@@ -47,7 +44,6 @@ function displayWeatherCondition(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
-//below: go to look the city and give API data.
 function search(city) {
   let apiKey = "3f30641e59d7236006ebb9c1f85663e5";
   let apiUrl = `
@@ -55,18 +51,12 @@ function search(city) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-//Below: once bottom submit trigger to Serach & show the city value
 function handleSubmit(event) {
   event.preventDefault();
-  //-(then move becoz we furhter set a serch city)let apiKey = "3f30641e59d7236006ebb9c1f85663e5";
-  //-(then move becoz we furhter set a serch city)let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  //below make an API call to OpenWeather AIP to give the data,
-  //-(then move becoz we furhter set a serch city)axios.get(apiUrl).then(displayWeatherCondition);
   let city = document.querySelector("#search-city").value;
   search(city);
 }
 
-//from navigator to feed the latidute & longitude, and further to displayWeatherCondition.
 function searchLocation(position) {
   let apiKey = "3f30641e59d7236006ebb9c1f85663e5";
   let apiUrl = `
@@ -75,26 +65,15 @@ function searchLocation(position) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-//below: action after current button hit. go navigator.geolocaton to find currentPosition
-//and then go searchLocation function to feed the latidute & longitude, and further to displayWeatherCondition.
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-//select the id=date line to replace.
-//let dateElement = document.querySelector("#date");
-//set up to call current time
-//let currentTime = new Date();
-//it will replace by formatDate function above and call this current time.
-//dateElement.innerHTML = formatDate(currentTime);
-
-//Serach bar to show the city
 let searchForm = document.querySelector("#upper-level");
 searchForm.addEventListener("submit", handleSubmit);
-//This to show the current city data on page
+
 search("Perth");
 
-//below is from currentbutton, go get the getCurrentLocation function
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
