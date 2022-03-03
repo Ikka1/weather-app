@@ -37,7 +37,9 @@ h1 {
   line-height: 24px;
   color: #231d3c;
 }
-
+.description {
+  text-transform: capitalize;
+}
 .search {
   position: relative;
   top: 0;
