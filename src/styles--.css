@@ -1,0 +1,104 @@
+body {
+  font-family: Calibri Light (Headings);
+  background-color: #eeeeee;
+  padding: 12px;
+  font-family: New Tegomin;
+  color: white;
+}
+
+.container {
+  display: block;
+  margin: 120px auto auto auto;
+  border: 1px solid #dadde1;
+  padding: 20px;
+  max-width: 650px;
+  border-radius: 20px;
+  background-image: url(../images/back4.jfif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+card {
+  display: block;
+  position: fixed;
+  top: 120px;
+}
+.current-weather {
+  text-align: left;
+  font-weight: 600;
+  margin: 0 auto;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+h1 {
+  text-align: left;
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  color: #231d3c;
+}
+.description {
+  text-transform: capitalize;
+}
+.search {
+  position: relative;
+  top: 0;
+
+  width: 75%;
+}
+.sunny-icon {
+  width: 80px;
+  position: relative;
+  left: 0;
+}
+
+label {
+  text-align: center;
+}
+.info {
+  font-size: 12px;
+}
+
+button {
+  background-color: #c1f4c5;
+  color: black;
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0px auto 0 auto;
+  border: 3px solid #75959a;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+
+  transition: all 200ms ease-in-out;
+}
+button:hover {
+  background: #eeeeee;
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.active {
+  color: #eeeeee;
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
+}
+
+.note {
+  text-align: center;
+  color: black;
+  font-size: 10pt;
+}
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}

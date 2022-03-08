@@ -1,25 +1,35 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+function formatDate(timezone) {
+  let d = new Date();
+  let localTime = d.getTime();
+  let localOffset = d.getTimezoneOffset() * 60000;
+  let utc = localTime + localOffset;
+  let nDate = new Date(utc + 1000 * timezone);
+
   let days = [
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
-    "Thrusday",
+    "Thursday",
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
 
-  return `${day}, ${hours}:${minutes} `;
+  let day = days[nDate.getDay()];
+  let hours = nDate.getHours();
+  hours = hours > 9 ? hours : "0" + hours;
+  let minutes = nDate.getMinutes();
+  minutes = minutes > 9 ? minutes : "0" + minutes;
+
+  return `${day} ${hours}:${minutes}`;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
 }
 //the time is wrong if search other city.
 
@@ -45,7 +55,7 @@ function displayWeatherCondition(response) {
     response.data.weather[0].description;
 
   let dateElement = document.querySelector("#date");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.timezone);
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
