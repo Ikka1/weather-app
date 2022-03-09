@@ -6,6 +6,18 @@ body {
   color: white;
 }
 
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .container {
   display: block;
   margin: 120px auto auto auto;
@@ -17,11 +29,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-card {
-  display: block;
-  position: fixed;
-  top: 120px;
-}
+
 .current-weather {
   text-align: left;
   font-weight: 600;
@@ -43,7 +51,6 @@ h1 {
 .search {
   position: relative;
   top: 0;
-
   width: 75%;
 }
 .main-icon {
@@ -52,13 +59,14 @@ h1 {
   left: 0;
 }
 
-label {
-  text-align: center;
+.active {
+  color: #eeeeee;
+  cursor: default;
+  text-decoration: none;
 }
-.info {
-  font-size: 12px;
+.active:hover {
+  text-decoration: none;
 }
-
 button {
   background-color: #c1f4c5;
   color: black;
@@ -77,28 +85,15 @@ button:hover {
   cursor: pointer;
 }
 
-.active {
-  color: #eeeeee;
-  cursor: default;
-  text-decoration: none;
+.form-group {
+  font-size: 13px;
 }
-.active:hover {
-  text-decoration: none;
+.weather-forecast-temperature-max {
+  font-weight: 600;
 }
 
 .note {
   text-align: center;
   color: black;
   font-size: 10pt;
-}
-#background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
 }
