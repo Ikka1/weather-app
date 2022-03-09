@@ -85,7 +85,7 @@ button:hover {
   cursor: pointer;
 }
 
-.form-group {
+.weather-forecast {
   font-size: 13px;
 }
 .weather-forecast-temperature-max {

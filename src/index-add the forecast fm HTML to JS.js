@@ -35,6 +35,7 @@ function formatDay(timestamp) {
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
+  //set the row in forecastHTML and close it with  forecastHTML+`</div>`
   let forecastHTML = `<div class="row align-items-start">`;
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
