@@ -86,13 +86,13 @@ button:hover {
 }
 
 .weather-forecast {
+  text-align: center;
   font-size: 13px;
 }
 .weather-forecast-temperature-max {
   font-weight: 600;
 }
 .wether-forecast-date {
-  text-align: center;
   font-size: 20px;
   font-weight: 800;
 }
