@@ -142,29 +142,6 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElementLow = document.querySelector("#lowest-temp");
-  let temperatureElementHigh = document.querySelector("#highest-temp");
-  //remove the active class from the celsius link
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheiTemperatureLow = (celsiusLowTemperature * 9) / 5 + 32;
-  temperatureElementLow.innerHTML = Math.round(fahrenheiTemperatureLow);
-  let fahrenheiTemperatureHigh = (celsiusHighTemperature * 9) / 5 + 32;
-  temperatureElementHigh.innerHTML = Math.round(fahrenheiTemperatureHigh);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElementLow = document.querySelector("#lowest-temp");
-  temperatureElementLow.innerHTML = Math.round(celsiusLowTemperature);
-  let temperatureElementHigh = document.querySelector("#highest-temp");
-  temperatureElementHigh.innerHTML = Math.round(celsiusHighTemperature);
-}
-
 let celsiusLowTemperature = null;
 
 let searchForm = document.querySelector("#upper-level");
@@ -172,11 +149,5 @@ searchForm.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-low-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-low-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Perth");
