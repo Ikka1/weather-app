@@ -24,37 +24,55 @@ function formatDate(timezone) {
   return `${day} ${hours}:${minutes}`;
 }
 
+//the time is wrong if search other city-Melbourne.
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
-//the time is wrong if search other city-Melbourne.
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row align-items-start">`;
 
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  //Below forecastDay is meaning whole one Array
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
    <div class="col">
-                <div class="wether-forecast-date">${day}</div>
-                <img src="images/sunny.png" alt="sunny" />
+                <div class="wether-forecast-date">${formatDay(
+                  forecastDay.dt
+                )}</div>
+                <img src="https://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" alt="sunny" />
                 <div class="weather-forecast-temperatures">
-                    <span class="weather-forecast-temperature-max">39℃</span>/
-                    <span class="weather-forecast-temperature-min">22℃</span></label
+                    <span class="weather-forecast-temperature-max">${Math.round(
+                      forecastDay.temp.max
+                    )}℃</span>/
+                    <span class="weather-forecast-temperature-min">${Math.round(
+                      forecastDay.temp.min
+                    )}℃</span></label
                   ></span>
                  </div>
               </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "3f30641e59d7236006ebb9c1f85663e5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeatherCondition(response) {
@@ -86,6 +104,8 @@ function displayWeatherCondition(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -152,4 +172,3 @@ let celsiusLink = document.querySelector("#celsius-low-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Perth");
-displayForecast();
