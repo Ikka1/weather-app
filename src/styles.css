@@ -53,6 +53,8 @@ h1 {
   top: 0;
   width: 75%;
 }
+
+}
 .main-icon {
   width: 80px;
   position: relative;
@@ -67,6 +69,7 @@ h1 {
 .active:hover {
   text-decoration: none;
 }
+
 button {
   background-color: #c1f4c5;
   color: black;
@@ -76,9 +79,8 @@ button {
   border: 3px solid #75959a;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
-
   transition: all 200ms ease-in-out;
-}
+    }
 button:hover {
   background: #eeeeee;
   color: blueviolet;
